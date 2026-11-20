@@ -9,7 +9,7 @@ Regisztráció, bejelentkezés, e-mailes értesítés, szerkesztés és törlés
 A felület és az adattárolás technológiáját a későbbi tervezés rögzíti.
 
 Az alábbi követelmények tervezett elvárások; teljesítésüket a megvalósítás után kell ellenőrizni.
-A felelősök jelölése munkamegosztási javaslat, nem szerzőségi állítás.
+A felelősök jelölése a feladatok elosztását mutatja, nem szerzőségi állítás.
 
 
 ## Munkamegosztás

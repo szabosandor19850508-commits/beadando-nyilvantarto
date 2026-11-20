@@ -28,28 +28,27 @@ nem része az első változatnak.
 
 Egy tantárgyhoz több beadandó tartozhat. Egy beadandó pontosan egy tantárgyhoz tartozik.
 
-## Tervezett munkamegosztás
+## Munkamegosztás
 
 | Csapattag | Követelmények |
 | --- | --- |
 | Szabó Sándor Zoltán | F-01, F-02, NF-01, NF-02 |
 | Besenyei Bendegúz (`bendeguz989`) | F-03, F-04, NF-03, NF-04 |
 
-A munkamegosztást a csapat közösen véglegesíti.
 A táblázat a tervezett felelősségeket jelöli, nem az elkészült munka szerzőségét.
 
 ## Dokumentáció
 
 - [Követelmények és elfogadási kritériumok](docs/requirements.md)
-- Tervezett további dokumentáció: UML-diagramok és ADR a
-  `docs/architecture/` mappában; üzleti szabályok, adatmodell,
-  API-szerződés, felhasználói folyamat és képernyővázlat.
+- [Architektúra: UML-diagramok és elfogadott ADR](docs/architecture/README.md)
+- [Részletes tervezés: szabályok, ERD, API, folyamat és képernyővázlat](docs/design/README.md)
 
 ## Technológia és állapot
 
 - Programozási nyelv: **Java**.
-- Jelenlegi szakasz: követelmények és tervezés.
-- A felület, az adattárolás és a pontos Java-verzió kiválasztása a tervezés része.
+- A 2–4. feladat tervezési dokumentációja elkészült.
+- Felület: ugyanazon helyi Java-alkalmazás által kiszolgált böngészős oldal és HTTP API.
+- A tartós adattárolás technológiája és a pontos Java-verzió a megvalósításkor rögzítendő.
 - Futtatható program még nem készült; az indítási és tesztelési útmutató
   a megvalósítással együtt kerül ide.
 

@@ -2,8 +2,8 @@ package hu.beadando.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.List;
 
-/** F-01 és F-02: Sándorhoz rendelt funkciók, a követelmények alapján. */
 public final class NyilvantartoService {
     private final Adattar adattar;
 
@@ -32,8 +32,41 @@ public final class NyilvantartoService {
         return tiszta;
     }
 
-    // Bendegúz itt valósítja meg:
-    // public List<Beadando> beadandokListaz(Long tantargyId)
-    // public void keszreJelol(long beadandoId)
-    // A részletes feladata: docs/workflow/bendeguz-feladata.md
+    public List<Beadando> beadandokListaz(Long tantargyId) {
+        if (tantargyId == null) {
+            return adattar.beadandok();
+        }
+
+        if (tantargyId <= 0 || adattar.tantargyKeres(tantargyId).isEmpty()) {
+            throw new IllegalArgumentException("A tantárgy nem létezik.");
+        }
+
+        return adattar.beadandok().stream()
+                .filter(beadando -> beadando.tantargy().id() == tantargyId)
+                .toList();
+    }
+     public void keszreJelol(long beadandoId) {
+        if (beadandoId <= 0) {
+            throw new IllegalArgumentException(
+                    "A beadandóazonosító pozitív legyen.");
+        }
+
+        var beadando = adattar.beadandoKeres(beadandoId)
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "A beadandó nem létezik."));
+
+        if (beadando.kesz()) {
+            return;
+        }
+
+        var keszBeadando = new Beadando(
+                beadando.id(),
+                beadando.cim(),
+                beadando.tantargy(),
+                beadando.hatarido(),
+                true
+        );
+
+        adattar.beadandoMent(keszBeadando);
+    }
 }

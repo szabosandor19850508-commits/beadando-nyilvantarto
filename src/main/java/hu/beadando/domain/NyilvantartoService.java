@@ -2,6 +2,7 @@ package hu.beadando.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.List;
 
 /** F-01 és F-02: Sándorhoz rendelt funkciók, a követelmények alapján. */
 public final class NyilvantartoService {
@@ -32,8 +33,17 @@ public final class NyilvantartoService {
         return tiszta;
     }
 
-    // Bendegúz itt valósítja meg:
-    // public List<Beadando> beadandokListaz(Long tantargyId)
-    // public void keszreJelol(long beadandoId)
-    // A részletes feladata: docs/workflow/bendeguz-feladata.md
+    public List<Beadando> beadandokListaz(Long tantargyId) {
+        if (tantargyId == null) {
+            return adattar.beadandok();
+        }
+
+        if (tantargyId <= 0 || adattar.tantargyKeres(tantargyId).isEmpty()) {
+            throw new IllegalArgumentException("A tantárgy nem létezik.");
+        }
+
+        return adattar.beadandok().stream()
+                .filter(beadando -> beadando.tantargy().id() == tantargyId)
+                .toList();
+    }
 }

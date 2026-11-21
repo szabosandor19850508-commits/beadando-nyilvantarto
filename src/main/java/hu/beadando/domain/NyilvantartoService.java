@@ -1,0 +1,39 @@
+package hu.beadando.domain;
+
+import java.time.LocalDate;
+import java.util.Objects;
+
+/** F-01 és F-02: Sándorhoz rendelt funkciók, a követelmények alapján. */
+public final class NyilvantartoService {
+    private final Adattar adattar;
+
+    public NyilvantartoService(Adattar adattar) {
+        this.adattar = Objects.requireNonNull(adattar);
+    }
+
+    public Tantargy tantargyLetrehoz(String nev) {
+        return adattar.tantargyMent(new Tantargy(0, szoveg(nev, 100, "Tantárgynév")));
+    }
+
+    public Beadando beadandoLetrehoz(String cim, long tantargyId, LocalDate hatarido) {
+        String tisztaCim = szoveg(cim, 150, "Cím");
+        if (tantargyId <= 0) throw new IllegalArgumentException("A tantárgyazonosító pozitív legyen.");
+        if (hatarido == null) throw new IllegalArgumentException("A határidő kitöltése kötelező.");
+        var tantargy = adattar.tantargyKeres(tantargyId)
+                .orElseThrow(() -> new IllegalArgumentException("A tantárgy nem létezik."));
+        return adattar.beadandoMent(new Beadando(0, tisztaCim, tantargy, hatarido, false));
+    }
+
+    private String szoveg(String ertek, int maxHossz, String mezo) {
+        if (ertek == null) throw new IllegalArgumentException(mezo + ": kötelező mező.");
+        String tiszta = ertek.strip();
+        if (tiszta.isEmpty() || tiszta.codePointCount(0, tiszta.length()) > maxHossz)
+            throw new IllegalArgumentException(mezo + ": 1–" + maxHossz + " karakter szükséges.");
+        return tiszta;
+    }
+
+    // Bendegúz itt valósítja meg:
+    // public List<Beadando> beadandokListaz(Long tantargyId)
+    // public void keszreJelol(long beadandoId)
+    // A részletes feladata: docs/workflow/bendeguz-feladata.md
+}

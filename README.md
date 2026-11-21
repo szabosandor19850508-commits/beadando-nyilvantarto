@@ -45,12 +45,12 @@ A táblázat a tervezett felelősségeket jelöli, nem az elkészült munka szer
 
 ## Technológia és állapot
 
-- Programozási nyelv: **Java**.
+- Programozási nyelv: **Java 21**; build: **Maven**; tesztek: **JUnit 5**.
 - A 2–4. feladat tervezési dokumentációja elkészült.
 - Felület: ugyanazon helyi Java-alkalmazás által kiszolgált böngészős oldal és HTTP API.
-- A tartós adattárolás technológiája és a pontos Java-verzió a megvalósításkor rögzítendő.
-- Futtatható program még nem készült; az indítási és tesztelési útmutató
-  a megvalósítással együtt kerül ide.
+- A tartós adattárolás még nincs megvalósítva; a domainréteg jelenleg memóriabeli teszttárolót használ.
+- Az F-01 és F-02 domainfüggvénye elkészült. Az F-03 és F-04 Bendegúz saját feladata.
+- A teljes webfelület, HTTP API és tartós adattárolás még nincs megvalósítva.
 
 ## Közös munka
 
@@ -62,3 +62,23 @@ csapattag is átnézi.
 Egy feladat akkor kész, ha az eredménye bekerült a repóba, a kapcsolódó
 dokumentáció naprakész, és az elfogadási kritériumok ellenőrzésének
 eredményét rögzítettük.
+
+## Java-egységtesztek futtatása
+
+Előfeltétel: JDK 21 és Maven 3.9.x. A projekt gyökerében:
+
+```powershell
+mvn test
+```
+
+Az első futás internetet igényel a függőségek letöltéséhez.
+A jelenlegi öt teszt sikeresen lefutott; [teszteredmény](docs/testing/sandor-eredmeny.md).
+
+## Új feladatok
+
+- [Bendegúz saját műveletei és tesztjei](docs/workflow/bendeguz-feladata.md)
+- [Docker-gyakorlat és futtatás](docs/docker/README.md)
+- [Docker ellenőrzésének állapota](docs/testing/docker-eredmeny.md)
+
+A Docker-oldal külön oktatási bemutató, nem a teljes beadandó-kezelő felület.
+A phpMyAdmin a MySQL-hez csatlakozik; a Java domainréteg még nem használ adatbázist.

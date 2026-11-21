@@ -58,4 +58,19 @@ class NyilvantartoServiceTest {
         assertTrue(adattar.beadandok().isEmpty());
         assertEquals(150, service.beadandoLetrehoz("a".repeat(150), t.id(), datum).cim().length());
     }
+        @Test void azonosCimuBeadandokKulonRekordkentMegmaradnak() {
+        var tantargy = service.tantargyLetrehoz("Java");
+        var hatarido = LocalDate.of(2026, 12, 10);
+        var elso = service.beadandoLetrehoz(
+                "Gyakorlat", tantargy.id(), hatarido);
+        var masodik = service.beadandoLetrehoz(
+                "Gyakorlat", tantargy.id(), hatarido);
+
+        assertNotEquals(elso.id(), masodik.id());
+        assertEquals(2, adattar.beadandok().size());
+        assertEquals(elso,
+                adattar.beadandoKeres(elso.id()).orElseThrow());
+        assertEquals(masodik,
+                adattar.beadandoKeres(masodik.id()).orElseThrow());
+    }
 }

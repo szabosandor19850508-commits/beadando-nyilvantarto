@@ -67,4 +67,20 @@ class BendeguzServiceTest {
                 List.of(vart, masodik),
                 adattar.beadandok());
     }
+    @Test
+    void nemLetezoBeadandoKeszreJeloleseHibatDob() {
+        var tantargy = service.tantargyLetrehoz("Java");
+        var beadando = service.beadandoLetrehoz(
+                "Meglévő feladat",
+                tantargy.id(),
+                LocalDate.of(2026, 12, 10));
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> service.keszreJelol(beadando.id() + 1));
+
+        assertEquals(
+                List.of(beadando),
+                adattar.beadandok());
+    }
 }

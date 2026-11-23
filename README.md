@@ -82,3 +82,7 @@ A jelenlegi öt teszt sikeresen lefutott; [teszteredmény](docs/testing/sandor-e
 
 A Docker-oldal külön oktatási bemutató, nem a teljes beadandó-kezelő felület.
 A phpMyAdmin a MySQL-hez csatlakozik; a Java domainréteg még nem használ adatbázist.
+
+Adatbázis bejelentkezés: 
+Felhasználó:
+jelszó: jelszo1234

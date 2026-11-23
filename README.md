@@ -47,9 +47,9 @@ A táblázat a tervezett felelősségeket jelöli, nem az elkészült munka szer
 
 - Programozási nyelv: **Java 21**; build: **Maven**; tesztek: **JUnit 5**.
 - A 2–4. feladat tervezési dokumentációja elkészült.
-- Felület: ugyanazon helyi Java-alkalmazás által kiszolgált böngészős oldal és HTTP API.
+- Tervezett felület: a helyi Java-alkalmazás által kiszolgált böngészős oldal és HTTP API; ezek még nincsenek megvalósítva.
 - A tartós adattárolás még nincs megvalósítva; a domainréteg jelenleg memóriabeli teszttárolót használ.
-- - Mind a négy domainfunkció (F-01–F-04) elkészült. Mindkét csapattag változtatásai véleményezett PR-on keresztül kerültek a main ágba.
+ - Mind a négy domainfunkció (F-01–F-04) elkészült. Mindkét csapattag változtatásai véleményezett PR-on keresztül kerültek a main ágba.
 - A teljes webfelület, HTTP API és tartós adattárolás még nincs megvalósítva.
 
 ## Közös munka
@@ -73,7 +73,7 @@ mvn test
 
 Az első futás internetet igényel a függőségek letöltéséhez.
 A 2026-11-21-i ellenőrzéskor mind a 9 JUnit-teszt sikeresen lefutott: Sándor 6, Bendegúz 3 tesztje. Hibák és kihagyott tesztek száma: 0.
-
+[Közös teszteredmény: 9 sikeres teszt](docs/testing/kozos-eredmeny.md).
 [Sándor korábbi teszteredménye](docs/testing/sandor-eredmeny.md).
 
 ## Új feladatok

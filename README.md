@@ -84,5 +84,5 @@ A Docker-oldal külön oktatási bemutató, nem a teljes beadandó-kezelő felü
 A phpMyAdmin a MySQL-hez csatlakozik; a Java domainréteg még nem használ adatbázist.
 
 Adatbázis bejelentkezés: 
-Felhasználó:
+Felhasználó: beadando
 jelszó: jelszo1234

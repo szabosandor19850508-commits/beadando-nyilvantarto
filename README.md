@@ -49,7 +49,7 @@ A táblázat a tervezett felelősségeket jelöli, nem az elkészült munka szer
 - A 2–4. feladat tervezési dokumentációja elkészült.
 - Felület: ugyanazon helyi Java-alkalmazás által kiszolgált böngészős oldal és HTTP API.
 - A tartós adattárolás még nincs megvalósítva; a domainréteg jelenleg memóriabeli teszttárolót használ.
-- Az F-01 és F-02 domainfüggvénye elkészült. Az F-03 és F-04 Bendegúz saját feladata.
+- - Mind a négy domainfunkció (F-01–F-04) elkészült. Mindkét csapattag változtatásai véleményezett PR-on keresztül kerültek a main ágba.
 - A teljes webfelület, HTTP API és tartós adattárolás még nincs megvalósítva.
 
 ## Közös munka
@@ -72,7 +72,9 @@ mvn test
 ```
 
 Az első futás internetet igényel a függőségek letöltéséhez.
-A jelenlegi öt teszt sikeresen lefutott; [teszteredmény](docs/testing/sandor-eredmeny.md).
+A 2026-11-21-i ellenőrzéskor mind a 9 JUnit-teszt sikeresen lefutott: Sándor 6, Bendegúz 3 tesztje. Hibák és kihagyott tesztek száma: 0.
+
+[Sándor korábbi teszteredménye](docs/testing/sandor-eredmeny.md).
 
 ## Új feladatok
 
